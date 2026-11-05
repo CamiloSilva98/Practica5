@@ -6,8 +6,10 @@ CONFIG -= qt
 SOURCES += \
         caja.cpp \
         main.cpp \
+        obstaculo.cpp \
         particula.cpp
 
 HEADERS += \
     caja.h \
+    obstaculo.h \
     particula.h
