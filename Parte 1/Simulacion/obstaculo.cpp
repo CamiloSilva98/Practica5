@@ -26,7 +26,8 @@ bool obstaculo::colisionarParticula(particula &p) const
     // lado del choque: 0 izquierdo, 1 derecho, 2 inferior, 3 superior
     int lado;
 
-    if (dx == 0 && dy == 0) {
+    if (dx == 0 && dy == 0)
+    {
         // el centro quedo dentro del obstaculo, se toma el lado mas cercano
         double dIzq = px - x;
         double dDer = x + ancho - px;
@@ -38,15 +39,20 @@ bool obstaculo::colisionarParticula(particula &p) const
         else if (menor == dDer) lado = 1;
         else if (menor == dInf) lado = 2;
         else lado = 3;
-    } else if (std::abs(dx) > std::abs(dy)) {
+    }
+    else if (std::abs(dx) > std::abs(dy))
+    {
         lado = (dx < 0) ? 0 : 1;
-    } else {
+    }
+    else
+    {
         lado = (dy < 0) ? 2 : 3;
     }
 
     // se corrige la posicion y se aplica -e a la velocidad perpendicular al lado
     // la velocidad paralela no se toca
-    switch (lado) {
+    switch (lado)
+    {
     case 0:
         px = x - r;
         if (vx > 0) vx = -e * vx;
