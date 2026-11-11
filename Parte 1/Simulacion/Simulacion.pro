@@ -5,11 +5,15 @@ CONFIG -= qt
 
 SOURCES += \
         caja.cpp \
+        colisionparticulas.cpp \
         main.cpp \
         obstaculo.cpp \
         particula.cpp
 
 HEADERS += \
     caja.h \
+Paulinita
+    colisionparticulas.h \
+main
     obstaculo.h \
     particula.h
