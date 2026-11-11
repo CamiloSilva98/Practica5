@@ -12,8 +12,7 @@ SOURCES += \
 
 HEADERS += \
     caja.h \
-Paulinita
     colisionparticulas.h \
-main
+    main\
     obstaculo.h \
     particula.h
