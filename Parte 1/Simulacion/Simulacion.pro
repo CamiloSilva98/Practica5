@@ -12,4 +12,5 @@ SOURCES += \
 HEADERS += \
     caja.h \
     colisionparticulas.h \
+    obstaculo.h \
     particula.h
