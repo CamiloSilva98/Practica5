@@ -8,11 +8,13 @@ SOURCES += \
         colisionparticulas.cpp \
         main.cpp \
         obstaculo.cpp \
-        particula.cpp
+        particula.cpp \
+        simulacion.cpp
 
 HEADERS += \
     caja.h \
     colisionparticulas.h \
     main\
     obstaculo.h \
-    particula.h
+    particula.h \
+    simulacion.h
