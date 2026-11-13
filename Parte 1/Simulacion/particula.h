@@ -26,7 +26,7 @@ public:
     void setMasa(double m) { masa = m; }
     void setRadio(double r) { radio = r; }
 
-    void mover(double dt, double g = 0.0);
+    void mover(double dt, double g = 9.8);
 };
 
 #endif // PARTICULA_H
