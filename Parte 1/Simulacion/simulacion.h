@@ -9,9 +9,9 @@
 #include "obstaculo.h"
 #include "particula.h"
 
-// Bucle de tiempo discreto (parte de Paulina).
-// En cada paso mueve las particulas, aplica las colisiones de Camilo
-// (paredes y obstaculos) y las de Paulina (particula-particula), y escribe
+// Bucle de tiempo discreto
+// En cada paso mueve las particulas, aplica las colisiones
+// (paredes y obstaculos), (particula-particula), y escribe
 // el archivo de salida con las posiciones y cada colision con su instante.
 class simulacion
 {
