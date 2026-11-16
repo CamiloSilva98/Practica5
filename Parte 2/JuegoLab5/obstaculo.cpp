@@ -2,8 +2,16 @@
 #include <algorithm>
 #include <cmath>
 
-obstaculo::obstaculo(double x, double y, double ancho, double alto, double e)
-    : x(x), y(y), ancho(ancho), alto(alto), e(e){}
+obstaculo::obstaculo(double x, double y, double ancho, double alto, double e, double resistencia)
+    : x(x), y(y), ancho(ancho), alto(alto), e(e), resistencia(resistencia){}
+
+void obstaculo::recibirDano(double dano)
+{
+    // el dano se resta de la resistencia y no baja de cero
+    resistencia -= dano;
+    if (resistencia < 0)
+        resistencia = 0;
+}
 
 bool obstaculo::colisionarParticula(particula &p) const
 {
