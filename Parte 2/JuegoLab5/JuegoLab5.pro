@@ -11,13 +11,15 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     obstaculo.cpp \
-    particula.cpp
+    particula.cpp \
+    proyectil.cpp
 
 HEADERS += \
     caja.h \
     mainwindow.h \
     obstaculo.h \
-    particula.h
+    particula.h \
+    proyectil.h
 
 FORMS += \
     mainwindow.ui
