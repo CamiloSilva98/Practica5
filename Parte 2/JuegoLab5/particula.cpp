@@ -11,8 +11,8 @@ void particula::mover(double dt, double g)
 {
     // posicion despues de dt con las ecuaciones
     x += vx * dt;
-    y += vy * dt - 0.5 * g * dt * dt;
+    y += vy * dt + 0.5 * g * dt * dt;
 
     // la gravedad solo cambia la velocidad en y
-    vy -= g * dt;
+    vy += g * dt;
 }
