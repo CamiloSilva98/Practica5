@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <vector>
+#include "juego.h"
+#include "obstaculografico.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,5 +24,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QGraphicsScene *escena;
+    QGraphicsView *vista;
+    juego *Juego;
+    std::vector<obstaculografico *> ObstaculosGraficos;
+
+    void dibujarObstaculos();
 };
 #endif // MAINWINDOW_H

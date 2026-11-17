@@ -9,7 +9,7 @@ proyectil::proyectil(int id, double x, double y, double velocidad, double angulo
                      int direccion, double masa, double radio)
     : particula(id, x, y,
                 direccion * velocidad * std::cos(anguloGrados * PI / 180.0),
-                velocidad * std::sin(anguloGrados * PI / 180.0),
+                -velocidad * std::sin(anguloGrados * PI / 180.0),
                 masa, radio){}
 
 double proyectil::calcularDano(double velocidadImpacto) const
