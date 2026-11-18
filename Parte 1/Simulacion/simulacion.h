@@ -9,9 +9,15 @@
 #include "obstaculo.h"
 #include "particula.h"
 
+<<<<<<< Updated upstream
 // Bucle de tiempo discreto
 // En cada paso mueve las particulas, aplica las colisiones
 // (paredes y obstaculos), (particula-particula), y escribe
+=======
+// Bucle de tiempo discreto .
+// En cada paso mueve las particulas, aplica las colisiones
+// (paredes y obstaculos),  (particula-particula), y escribe
+>>>>>>> Stashed changes
 // el archivo de salida con las posiciones y cada colision con su instante.
 class simulacion
 {
