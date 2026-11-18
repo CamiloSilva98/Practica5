@@ -10,8 +10,14 @@ private:
     double ancho, alto;
     double e;           // coeficiente de restitucion
     double resistencia;
+    int dueno;              // jugador 1 o 2
+    bool representante;     // true si es el representante del jugador
 public:
-    obstaculo(double x, double y, double ancho, double alto, double e, double resistencia);
+    obstaculo(double x, double y, double ancho, double alto, double e, double resistencia,
+              int dueno, bool representante);
+
+    int getDueno() const { return dueno; }
+    bool esRepresentante() const { return representante; }
 
     double getX() const { return x; }
     double getY() const { return y; }

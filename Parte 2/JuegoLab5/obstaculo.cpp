@@ -2,8 +2,10 @@
 #include <algorithm>
 #include <cmath>
 
-obstaculo::obstaculo(double x, double y, double ancho, double alto, double e, double resistencia)
-    : x(x), y(y), ancho(ancho), alto(alto), e(e), resistencia(resistencia){}
+obstaculo::obstaculo(double x, double y, double ancho, double alto, double e, double resistencia,
+                     int dueno, bool representante)
+    : x(x), y(y), ancho(ancho), alto(alto), e(e), resistencia(resistencia),
+    dueno(dueno), representante(representante){}
 
 void obstaculo::recibirDano(double dano)
 {
