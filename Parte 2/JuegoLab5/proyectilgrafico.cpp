@@ -9,7 +9,7 @@ proyectilgrafico::proyectilgrafico(proyectil *logico)
     Logico(logico)
 {
     // el rectangulo esta centrado en (0,0), asi setPos recibe el centro del proyectil
-    setBrush(QBrush(QColor(60, 60, 60)));
+    setBrush(QBrush(QColor(255, 192, 203)));
     setPen(QPen(Qt::black));
     setZValue(2);   // por encima de los obstaculos
     actualizar();
