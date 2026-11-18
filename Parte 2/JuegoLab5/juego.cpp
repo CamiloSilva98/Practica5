@@ -26,11 +26,13 @@ void juego::crearObstaculos()
     Obstaculos.push_back(new obstaculo(100, 450, 50, 100, 0.6, 150, 1, false));
     Obstaculos.push_back(new obstaculo(300, 450, 50, 100, 0.6, 150, 1, false));
     Obstaculos.push_back(new obstaculo(100, 420, 250, 30, 0.6, 300,1, false));
+    Obstaculos.push_back(new obstaculo(195, 500, 60, 50, 0.4, 50, 1, true));
 
     // estructura derecha, igual que la izquierda
     Obstaculos.push_back(new obstaculo(1050, 450, 50, 100, 0.6, 150, 2, false));
     Obstaculos.push_back(new obstaculo(850, 450, 50, 100, 0.6, 150, 2, false));
     Obstaculos.push_back(new obstaculo(850, 420, 250, 30, 0.6, 300, 2, false));
+    Obstaculos.push_back(new obstaculo(945, 500, 60, 50, 0.4, 50, 2, true));
 }
 
 double juego::canonX(int jugador) const
