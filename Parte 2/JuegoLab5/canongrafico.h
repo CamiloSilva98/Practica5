@@ -5,6 +5,7 @@
 #include <QGraphicsEllipseItem>
 #include <QGraphicsRectItem>
 #include <QPointF>
+#include <QColor>
 
 // Dibujo del arma: una base circular y un tubo que gira segun el angulo
 class canongrafico : public QGraphicsItemGroup
@@ -23,6 +24,9 @@ public:
     // cambia el angulo (grados) y gira el tubo
     void setAngulo(double grados);
     double getAngulo() const { return Angulo; }
+
+    // color del tubo y de la base (para distinguir a cada jugador)
+    void setColor(const QColor &tubo, const QColor &base);
 
     // punto de la escena por donde sale el proyectil
     QPointF punta() const;

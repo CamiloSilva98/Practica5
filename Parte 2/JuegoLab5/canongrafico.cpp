@@ -36,6 +36,12 @@ void canongrafico::setAngulo(double grados)
     Tubo->setRotation(Direccion == 1 ? -grados : 180 + grados);
 }
 
+void canongrafico::setColor(const QColor &tubo, const QColor &base)
+{
+    Tubo->setBrush(QBrush(tubo));
+    Base->setBrush(QBrush(base));
+}
+
 QPointF canongrafico::punta() const
 {
     double a = Angulo * PI / 180.0;
