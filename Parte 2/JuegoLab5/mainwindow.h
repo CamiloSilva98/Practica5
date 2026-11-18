@@ -7,6 +7,8 @@
 #include <vector>
 #include "juego.h"
 #include "obstaculografico.h"
+#include <QTimer>
+#include "proyectilgrafico.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,5 +32,12 @@ private:
     std::vector<obstaculografico *> ObstaculosGraficos;
 
     void dibujarObstaculos();
+    QTimer *temporizador;
+    proyectilgrafico *ProyectilGrafico;
+
+    // paso de tiempo de la simulacion en cada tick
+    static constexpr double DT = 0.048;
+
+    void tick();
 };
 #endif // MAINWINDOW_H

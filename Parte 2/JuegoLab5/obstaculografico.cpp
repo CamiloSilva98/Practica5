@@ -10,7 +10,10 @@ obstaculografico::obstaculografico(obstaculo *logico)
     // la fisica tiene el eje y hacia arriba y Qt hacia abajo, aqui se convierte
     setPos(logico->getX(), logico->getY());
 
-    setBrush(QBrush(QColor(255, 228, 196)));
+    if (logico->esRepresentante())
+        setBrush(QBrush(QColor(173, 216, 230)));
+    else
+        setBrush(QBrush(QColor(255, 228, 196)));
     setPen(QPen(QColor(200, 140, 40)));
 
     Texto = new QGraphicsTextItem(this);
@@ -26,7 +29,10 @@ void obstaculografico::actualizar()
         return;
     }
 
-    Texto->setPlainText(QString::number(Logico->getResistencia(), 'f', 0));
+    QString etiqueta = QString::number(Logico->getResistencia(), 'f', 0);
+    if (Logico->esRepresentante())
+        etiqueta = "Rival\n" + etiqueta;
+    Texto->setPlainText(etiqueta);
 
     // centra el numero dentro del rectangulo
     QRectF r = Texto->boundingRect();
