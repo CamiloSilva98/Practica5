@@ -8,22 +8,28 @@ CONFIG += c++17
 
 SOURCES += \
     caja.cpp \
+    canongrafico.cpp \
+    colisionproyectil.cpp \
     juego.cpp \
     main.cpp \
     mainwindow.cpp \
     obstaculo.cpp \
     obstaculografico.cpp \
     particula.cpp \
-    proyectil.cpp
+    proyectil.cpp \
+    proyectilgrafico.cpp
 
 HEADERS += \
     caja.h \
+    canongrafico.h \
+    colisionproyectil.h \
     juego.h \
     mainwindow.h \
     obstaculo.h \
     obstaculografico.h \
     particula.h \
-    proyectil.h
+    proyectil.h \
+    proyectilgrafico.h
 
 FORMS += \
     mainwindow.ui

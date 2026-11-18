@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     try
     {
         caja MiCaja(100.0, 60.0);
-        simulacion Sim(MiCaja, 0.01, 15.0);      // dt = 0.01 s, 15 s en total
+        simulacion Sim(MiCaja, 0.01, 30.0);      // dt = 0.01 s, 15 s en total
 
         // 4 obstaculos cuadrados (x, y, ancho, alto, e)
         Sim.AgregarObstaculo(obstaculo(20, 15, 8, 8, 0.7));
