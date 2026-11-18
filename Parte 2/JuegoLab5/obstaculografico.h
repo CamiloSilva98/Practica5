@@ -1,3 +1,5 @@
+#ifndef OBSTACULOGRAFICO_H
+#define OBSTACULOGRAFICO_H
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include "obstaculo.h"
@@ -14,3 +16,5 @@ public:
     // vuelve a leer la resistencia del obstaculo y la redibuja
     void actualizar();
 };
+
+#endif

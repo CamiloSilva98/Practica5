@@ -1,3 +1,5 @@
+#ifndef PROYECTIL_H
+#define PROYECTIL_H
 #include "particula.h"
 
 class proyectil : public particula
@@ -9,3 +11,5 @@ public:
 
     double calcularDano(double velocidadImpacto) const;
 };
+
+#endif
