@@ -7,7 +7,6 @@
 #include <QSlider>
 #include <QLabel>
 #include <QPushButton>
-#include <QTimer>
 #include <QVBoxLayout>
 #include <vector>
 #include "juego.h"
@@ -40,14 +39,14 @@ private:
     std::vector<obstaculografico *> ObstaculosGraficos;
 
     canongrafico *CanonJ1;   // canon del jugador 1 (izquierda, dispara a la derecha)
-    canongrafico *CanonJ2;
+    canongrafico *CanonJ2; // canon del jugador 2 (derecha, dispara a la izquierda)
     QSlider *SliderAngulo;
     QLabel *EtiquetaAngulo;
     QSlider *SliderVelocidad;
     QLabel *EtiquetaVelocidad;
     QPushButton *BotonLanzar;
     QTimer *Reloj;
-    proyectilgrafico *ProyGrafico = nullptr;   // canon del jugador 2 (derecha, dispara a la izquierda)
+    proyectilgrafico *ProyGrafico = nullptr;
 
     QMediaPlayer *musica;
     QAudioOutput *salidaAudio;
@@ -66,9 +65,6 @@ private:
 public:
     // gira el canon del jugador (1 o 2); angulo en grados, positivo hacia arriba
     void setAnguloCanon(int jugador, double angulo);
-
-    // angulo (grados) que marca el control en este momento, para usarlo al disparar
-    double getAnguloControl() const { return SliderAngulo->value(); }
 
     // pone el control en el angulo del canon del jugador en turno (llamar al cambiar de turno)
     void sincronizarControl();

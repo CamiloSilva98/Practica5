@@ -11,8 +11,6 @@ struct ResultadoColision
 {
     bool ChocoPared = false;     // hubo rebote elastico en la caja
     int IndiceGolpeado = -1;     // primer obstaculo golpeado (-1 si ninguno)
-    double Dano = 0.0;           // dano total aplicado en este paso
-    bool Destruyo = false;       // algun obstaculo quedo destruido en este paso
 };
 
 class colisionproyectil

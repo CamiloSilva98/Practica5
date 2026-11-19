@@ -6,7 +6,7 @@
 class obstaculo
 {
 private:
-    double x, y;        // esquina inferior izquierda
+    double x, y;        // esquina superior izquierda
     double ancho, alto;
     double e;           // coeficiente de restitucion
     double resistencia;

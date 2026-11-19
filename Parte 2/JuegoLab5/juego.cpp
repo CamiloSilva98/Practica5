@@ -25,7 +25,7 @@ void juego::crearObstaculos()
     // estructura izquierda: dos columnas de 200 y una viga de 100 encima
     Obstaculos.push_back(new obstaculo(100, 450, 50, 100, 0.6, 200, 1, false));
     Obstaculos.push_back(new obstaculo(300, 450, 50, 100, 0.6, 200, 1, false));
-    Obstaculos.push_back(new obstaculo(100, 420, 250, 30, 0.75, 350,1, false));
+    Obstaculos.push_back(new obstaculo(100, 420, 250, 30, 0.6, 350,1, false));
     Obstaculos.push_back(new obstaculo(195, 500, 60, 50, 0.4, 50, 1, true));
 
     // estructura derecha, igual que la izquierda
@@ -63,16 +63,15 @@ bool juego::lanzar(double angulo, double velocidad)
     return true;
 }
 
-ResultadoColision juego::paso(double dt)
+void juego::paso(double dt)
 {
-    ResultadoColision R;
     if (!vuelo)
-        return R;
+        return;
 
     proyectilActual->mover(dt, GRAVEDAD);
     tiempoVuelo += dt;
 
-    R = colisionproyectil::Resolver(*proyectilActual, MiCaja, Obstaculos);
+    ResultadoColision R = colisionproyectil::Resolver(*proyectilActual, MiCaja, Obstaculos);
     if (R.ChocoPared || R.IndiceGolpeado != -1)
         huboChoque = true;
 
@@ -85,7 +84,7 @@ ResultadoColision juego::paso(double dt)
         || (huboChoque && rapidez < VELOCIDAD_MINIMA))
         terminarTurno();
 
-    return R;
+    return;
 }
 
 void juego::terminarTurno()
