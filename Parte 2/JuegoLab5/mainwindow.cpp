@@ -1,19 +1,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QPen>
-<<<<<<< Updated upstream
 #include <QMessageBox>
 #include <QString>
-=======
 #include <QHBoxLayout>
 #include <QStatusBar>
+#include <QBrush>
+#include <QPixmap>
+#include <QUrl>
 
 namespace {
 const double DT = 0.016;            // segundos de simulacion por paso
 const int PASOS_POR_TICK = 2;       // pasos por cada tick del reloj (sube para ir mas rapido)
 const int INTERVALO_MS = 16;        // tiempo real entre ticks
 }
->>>>>>> Stashed changes
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +24,13 @@ MainWindow::MainWindow(QWidget *parent)
     const caja &c = Juego->getCaja();
 
     escena = new QGraphicsScene(0, 0, c.getAncho(), c.getAlto(), this);
+    // fondo de la escena, ajustado al tamano de la caja
+    QPixmap fondo(":/new/prefix1/archivos/fondo.jpg");
+    if (!fondo.isNull())
+        escena->setBackgroundBrush(QBrush(fondo.scaled(static_cast<int>(c.getAncho()),
+                                                       static_cast<int>(c.getAlto()),
+                                                       Qt::IgnoreAspectRatio,
+                                                       Qt::SmoothTransformation)));
     escena->addRect(0, 0, c.getAncho(), c.getAlto(), QPen(Qt::black));
 
     vista = new QGraphicsView(escena, this);
@@ -37,23 +44,20 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(central);
 
     dibujarObstaculos();
-<<<<<<< Updated upstream
-    ProyectilGrafico = nullptr;
-
-    temporizador = new QTimer(this);
-    connect(temporizador, &QTimer::timeout, this, &MainWindow::tick);
-    temporizador->start(16);
-
-    // prueba temporal, borrar cuando esten los controles de Paulina
-    Juego->lanzar(45, 80);
-=======
     crearCanones();
     sincronizarControl();
 
     Reloj = new QTimer(this);
     connect(Reloj, &QTimer::timeout, this, &MainWindow::tick);
     statusBar()->showMessage("Turno del jugador 1");
->>>>>>> Stashed changes
+    // musica de fondo en bucle
+    salidaAudio = new QAudioOutput(this);
+    salidaAudio->setVolume(0.3);
+    musica = new QMediaPlayer(this);
+    musica->setAudioOutput(salidaAudio);
+    musica->setSource(QUrl("qrc:/new/prefix1/archivos/fondoMusica.mp3"));
+    musica->setLoops(QMediaPlayer::Infinite);
+    musica->play();
 }
 
 MainWindow::~MainWindow()
@@ -72,35 +76,6 @@ void MainWindow::dibujarObstaculos()
     }
 }
 
-<<<<<<< Updated upstream
-void MainWindow::tick()
-{
-    Juego->paso(DT);
-
-    // proyectil en vuelo: su grafico se crea la primera vez y se mueve en cada tick
-    if (Juego->enVuelo()) {
-        if (!ProyectilGrafico) {
-            ProyectilGrafico = new proyectilgrafico(Juego->getProyectil());
-            escena->addItem(ProyectilGrafico);
-        }
-        ProyectilGrafico->actualizar();
-    } else if (ProyectilGrafico) {
-        // el turno termino, se quita el grafico
-        escena->removeItem(ProyectilGrafico);
-        delete ProyectilGrafico;
-        ProyectilGrafico = nullptr;
-    }
-
-    // numeros de resistencia y obstaculos destruidos
-    for (obstaculografico *g : ObstaculosGraficos)
-        g->actualizar();
-
-    if (Juego->getGanador() != 0) {
-        temporizador->stop();
-        QMessageBox::information(this, "Fin del juego",
-                                 QString("Gano el jugador %1").arg(Juego->getGanador()));
-    }
-=======
 void MainWindow::crearCanones()
 {
     // la posicion y el largo salen de juego, asi el proyectil sale justo de la punta
@@ -225,11 +200,13 @@ void MainWindow::terminarLanzamiento()
     if (Juego->getGanador() != 0)
     {
         statusBar()->showMessage(QString("Gano el jugador %1").arg(Juego->getGanador()));
+        QMessageBox::information(this, "Fin del juego",
+                                 QString("Gano el jugador %1").arg(Juego->getGanador()));
         return;   // los controles quedan desactivados
     }
 
     habilitarControles(true);
     sincronizarControl();
     statusBar()->showMessage(QString("Turno del jugador %1").arg(Juego->getJugadorActual()));
->>>>>>> Stashed changes
 }
+

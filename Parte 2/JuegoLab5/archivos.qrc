@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>archivos/1.jpg</file>
+        <file>archivos/2.jpg</file>
+        <file>archivos/fondo.jpg</file>
+        <file>archivos/fondoMusica.mp3</file>
+    </qresource>
+</RCC>
