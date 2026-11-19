@@ -23,8 +23,8 @@ private:
     static constexpr double GRAVEDAD = 9.81;
     static constexpr double MASA_PROYECTIL = 1.0;
     static constexpr double RADIO_PROYECTIL = 5.0;
-    static constexpr double VELOCIDAD_MINIMA = 5.0;
-    static constexpr double TIEMPO_MAXIMO = 30.0;
+    static constexpr double VELOCIDAD_MINIMA = 3.0;
+    static constexpr double TIEMPO_MAXIMO = 40.0;
     static constexpr double LARGO_CANON = 50.0;
     static constexpr double MARGEN_CANON = 40.0;
     static constexpr double ALTURA_CANON = 260.0;

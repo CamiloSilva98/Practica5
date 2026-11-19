@@ -3,7 +3,7 @@
 
 namespace {
 const double PI = 3.14159265358979323846;
-const double FACTOR_DANO = 1.5;
+const double FACTOR_DANO = 1.0;
 }
 proyectil::proyectil(int id, double x, double y, double velocidad, double anguloGrados,
                      int direccion, double masa, double radio)
