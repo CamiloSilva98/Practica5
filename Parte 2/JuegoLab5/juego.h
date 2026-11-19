@@ -43,7 +43,7 @@ public:
     bool lanzar(double angulo, double velocidad);
 
     // avanza un paso de tiempo y devuelve lo que paso, para que la interfaz se actualice
-    ResultadoColision paso(double dt);
+    void paso(double dt);
 
     int getJugadorActual() const { return jugadorActual; }
     bool enVuelo() const { return vuelo; }

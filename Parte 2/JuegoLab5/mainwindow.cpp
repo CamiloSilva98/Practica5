@@ -11,7 +11,7 @@
 
 namespace {
 const double DT = 0.016;            // segundos de simulacion por paso
-const int PASOS_POR_TICK = 2;       // pasos por cada tick del reloj (sube para ir mas rapido)
+const int PASOS_POR_TICK = 4;       // pasos por cada tick del reloj
 const int INTERVALO_MS = 16;        // tiempo real entre ticks
 }
 
@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
     Reloj = new QTimer(this);
     connect(Reloj, &QTimer::timeout, this, &MainWindow::tick);
     statusBar()->showMessage("Turno del jugador 1");
+
     // musica de fondo en bucle
     salidaAudio = new QAudioOutput(this);
     salidaAudio->setVolume(0.3);

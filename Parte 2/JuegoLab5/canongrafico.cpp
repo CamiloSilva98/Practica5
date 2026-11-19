@@ -2,14 +2,10 @@
 #include <QBrush>
 #include <QColor>
 #include <QPen>
-#include <cmath>
 
-namespace {
-const double PI = 3.14159265358979323846;
-}
 
 canongrafico::canongrafico(double x, double y, int direccion, double largo, double grosor)
-    : Largo(largo), Angulo(0), Direccion(direccion)
+    : Angulo(0), Direccion(direccion)
 {
     // tubo: nace en el centro de la base y se extiende hacia la derecha; luego se gira
     Tubo = new QGraphicsRectItem(0, -grosor / 2, largo, grosor);
@@ -40,11 +36,4 @@ void canongrafico::setColor(const QColor &tubo, const QColor &base)
 {
     Tubo->setBrush(QBrush(tubo));
     Base->setBrush(QBrush(base));
-}
-
-QPointF canongrafico::punta() const
-{
-    double a = Angulo * PI / 180.0;
-    return QPointF(x() + Direccion * Largo * std::cos(a),
-                   y() - Largo * std::sin(a));
 }

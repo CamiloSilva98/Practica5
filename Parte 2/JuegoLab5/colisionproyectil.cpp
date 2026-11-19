@@ -40,9 +40,6 @@ ResultadoColision colisionproyectil::Resolver(proyectil &P, const caja &Caja,
         {
             if (R.IndiceGolpeado == -1)
                 R.IndiceGolpeado = static_cast<int>(i);
-            R.Dano += Dano;
-            if (Obstaculos[i]->estaDestruido())
-                R.Destruyo = true;
         }
     }
     return R;
